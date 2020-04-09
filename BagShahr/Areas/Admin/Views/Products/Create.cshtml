@@ -1,0 +1,172 @@
+﻿@model DataLayer.Product
+
+@{
+	ViewBag.Title = "افزودن ملک";
+}
+
+<br />
+<br />
+<div class="container">
+	<div class="row">
+		@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+		{
+			@*@Html.AntiForgeryToken()*@
+
+			<div class="col-md-8">
+				<div class="panel panel-primary">
+					<div class="panel-heading"><h4>ثبت ملک جدید</h4></div>
+					<div class="panel-body">
+						<div class="form-horizontal">
+
+							<hr />
+							@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+							<div class="form-group">
+								@Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.ShortDiscription, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.ShortDiscription, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.ShortDiscription, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.Discription, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.Discription, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.Discription, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.Slider, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									<div class="checkbox">
+										@Html.EditorFor(model => model.Slider)
+										@Html.ValidationMessageFor(model => model.Slider, "", new { @class = "text-danger" })
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								@Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									<div class="checkbox">
+										@Html.EditorFor(model => model.IsActive)
+										@Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.Special, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									<div class="checkbox">
+										@Html.EditorFor(model => model.Special)
+										@Html.ValidationMessageFor(model => model.Special, "", new { @class = "text-danger" })
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<span class="control-label col-md-2">ویژگی ها</span>
+								<div class="col-md-10">
+									<span class="control-label ">مثال : تعداد اتاق : 3 - استخر : دارد - انتن مرکزی : دارد </span>
+									<input type="text" name="Specification" placeholder="کلمات را با - از هم جدا کنید" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+								<span class="control-label col-md-2">تجهیزات</span>
+								<div class="col-md-10">
+									<span class="control-label ">مثال : ابنما - سونا - در ریموت </span>
+									<input type="text" name="Equipment" placeholder="کلمات را با - از هم جدا کنید" class="form-control" />
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<div class="col-md-offset-2 col-md-10">
+									<input type="submit" value="ثبت ملک" class="btn btn-success" />
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading"><h4>تصویر</h4></div>
+					<div class="alert alert-danger">انتخاب عکس الزامی است</div>
+					<img src="~/Image/images.jpg" id="imgPreviewProduct" class="thumbnail" style="margin:5px auto" />
+					<div class="panel-body"><input type="file" id="imageProduct" name="ImgUp" /></div>
+				</div>
+			</div>
+		}
+	</div>
+
+
+
+	<div class="btn btn-warning">
+		@Html.ActionLink("برگشت به لیست", "Index")
+	</div>
+</div>
+
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	<script>
+		function readURL(input) {
+
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#imgPreviewProduct').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#imageProduct").change(function () {
+			readURL(this);
+		});
+	</script>
+	<script src="/ckeditor/ckeditor.js"></script>
+	<script src="/ckeditor/adapters/jquery.js"></script>
+	<script>
+		$(function () {
+			$('#Discription').ckeditor();
+		});
+	</script>
+}
+

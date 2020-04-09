@@ -1,0 +1,48 @@
+﻿<nav class="navbar navbar-default navmother " role="navigation">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="/">BAGE SHAHRE</a>
+	</div>
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse navbar-ex1-collapse">
+		<form class="navbar-form navbar-left" method="get" action="@Url.Action("Search")" role="search">
+			<div class="form-group">
+				<div class="input-group">
+					<input type="text" class="form-control" name="q" placeholder="جستجو">
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-default">
+							جستجو
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+
+		<ul class="nav navbar-nav">
+			<li><a href="/">صفحه اصلی </a></li>
+			<li><a href="@Url.Action("Contact")">تماس با ما</a></li>
+			<li><a href="@Url.Action("About")">در باره ما </a></li>
+			<li><a href="@Url.Action("Arshive")">آرشیو</a></li>
+			@{
+				if (!User.Identity.IsAuthenticated)
+				{
+					<li><a href="@Url.Action("LogIn","User")" class="success">ورود به سیستم </a></li>
+				}
+				else
+				{
+					<li><a href="/Admin/Products/Index" class="primary"> پنل مدیریت </a></li>
+					<li><a href="@Url.Action("LogOut","User")"class="danger"> خروج از سیستم </a></li>
+					<li> @User.Identity.Name </li>
+				}
+			}
+
+		</ul>
+
+	</div><!-- /.navbar-collapse -->
+</nav>

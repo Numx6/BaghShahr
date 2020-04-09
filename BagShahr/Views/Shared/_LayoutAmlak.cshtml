@@ -1,0 +1,92 @@
+﻿<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title</title>
+	<link rel="stylesheet" href="/Content/Boot3/bootstrap.css">
+	<link rel="stylesheet" href="/Content/Boot3/bootstrap-rtl.min.css">
+	<link rel="stylesheet" href="/Content/fonts/font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="/Content/script/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="/Content/script/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+	<link rel="stylesheet" href="/Content/css/Style.css">
+</head>
+<body>
+	<!-- Start Slider -->
+	@RenderSection("Slider",false)
+	@RenderSection("ImgHead",false)
+	<!-- End Slider -->
+	<!-- Start Nav -->
+	@RenderSection("Nav",false)
+	<!-- End Nav -->
+
+	@RenderBody()
+
+
+	<!-- Start Footer -->
+	<div class="Content7">
+		<div class="container">
+
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4  Footer-right">
+				<div class="Footer-right-img">
+					<ul>
+						<br /><br />
+						<h4 class="Footer-ri-Line-Name-h4">LOGO</h4>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 Footer-Center">
+				<div class="Footer-Cener-div">
+					<ul class="Footer-Cener-div-ul">
+						<li class="Footer-Cener-li">
+							<a href="tel:09121613896" class="Footer-Center-Line-Name-h3">
+								<i class="fa fa-mobile"></i>
+								<span> 3896  161  0912 </span>
+							</a>
+							<h4 class="Footer-Center-Line-Name-h4">کامران زمانزاده</h4>
+						</li>
+						<li class="Footer-Cener-li">
+							<a href="tel:09127668003" class="Footer-Center-Line-Name-h3">
+								<i class="fa fa-mobile"></i>
+								<span> 8003  766  0912</span>
+							</a>
+							<h4 class="Footer-Center-Line-Name-h4">حمید حاصلی</h4>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 Footer-Left">
+				<div class="Footer-left-div">
+					<ul>
+						<li class="Footer-left-li">
+							<h5 class="Footer-left-h4">
+								آدرس : کرج - جاده کرج به محمدشهر -ابتدای محمد شهر - جنب مجتمع شریعت (فروشگاه رفاه) - املاک باغ شهر البرز
+							</h5>
+						</li>
+						<li class="Footer-Left-li">
+							<h3>
+								<a class="fa fa-paper-plane Footer-Left-Icon" href="https://telegram.me/bagh_shahr" title="telegram"></a>
+								<a class="fa fa-instagram  Footer-Left-Icon" href="https://www.instagram.com/bagh_shahr" title="instagram"></a>
+								<a class="fa fa-facebook Footer-Left-Icon" href="#" title="facebook"></a>
+								<a class="fa fa-google-plus Footer-Left-Icon" href="#" rel="Publisher" title="Google plus" target="_new"></a>
+							</h3>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Footer -->
+
+
+	<script src="/Content/script/jquery.min.js"></script>
+	<script src="/Content/script/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+	<script src="/Content/script/bootstrap.min.js"></script>
+	<script src="~/Content/script/CustomScript.js"></script>
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+</body>
+</html>

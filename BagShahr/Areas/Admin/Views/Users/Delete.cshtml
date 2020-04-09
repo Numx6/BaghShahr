@@ -1,0 +1,46 @@
+﻿@model DataLayer.User
+
+@{
+    ViewBag.Title = "حذف کاربر";
+}
+
+<h2>Delete</h2>
+
+<h3>آیا از حذف کاربر مطمعن هستید ؟</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @*@Html.AntiForgeryToken()*@
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("بازگشت به لیست", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DataLayer.User>
+
+@{
+	ViewBag.Title = "کاربران";
+}
+
+
+<br />
+<br />
+<a href="@Url.Action("Create")" class="btn btn-success">ثبت کاربر جدید</a>
+<br />
+<br />
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Name)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.UserName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.CreatDate)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.UserName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.CreatDate)
+			</td>
+			<td>
+				<a class="btn btn-warning btn-sm" href="@Url.Action("Edit",new {id=item.UserId })">ویرایش </a>
+				<a class="btn btn-danger btn-sm" href="@Url.Action("Delete" ,new {id=item.UserId })">حذف</a>
+			</td>
+		</tr>
+	}
+
+</table>

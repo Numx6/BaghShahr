@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.98
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BagShahr", "BagShahr\BagShahr.csproj", "{E8D8768F-00AD-45E2-AA84-074D25643F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{1122D1DC-8216-4E86-9D34-3A874EEAFEA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8D8768F-00AD-45E2-AA84-074D25643F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8D8768F-00AD-45E2-AA84-074D25643F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8D8768F-00AD-45E2-AA84-074D25643F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8D8768F-00AD-45E2-AA84-074D25643F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1122D1DC-8216-4E86-9D34-3A874EEAFEA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1122D1DC-8216-4E86-9D34-3A874EEAFEA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1122D1DC-8216-4E86-9D34-3A874EEAFEA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1122D1DC-8216-4E86-9D34-3A874EEAFEA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E52044EF-7A9E-4C69-A8D7-A2D566A3BF26}
+	EndGlobalSection
+EndGlobal

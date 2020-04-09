@@ -1,0 +1,64 @@
+﻿@model DataLayer.HomeSlider
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>حذف</h2>
+
+<h3>آیا از حذف اسلاید مورد نظر مطمعن هستید ؟</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgName)
+        </dt>
+
+        <dd>
+			<img src="~/Image/slider/thumb/@Model.ImgName" class="thumbnail" alt="Alternate Text" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgAlt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgAlt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @*@Html.AntiForgeryToken()*@
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("بازگشت به لیست", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,97 @@
+﻿@model DataLayer.User
+
+@{
+	ViewBag.Title = "ورود به سیستم";
+	Layout = "~/Views/Shared/_LayoutAmlak.cshtml";
+}
+
+	
+
+
+	<div class="Container-Content1">
+		<div class="container Contetnt-4">
+
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-Header-Content1">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 textHedaerContetnt4-h3">
+						<h3>
+							<span class="glyphicon glyphicon-heart"></span> |
+							ورود به سیستم
+						</h3>
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<div class="row">
+				@using (Html.BeginForm())
+				{
+					@*@Html.AntiForgeryToken()*@
+
+					<div class="form-horizontal">
+						<h4>User</h4>
+						<hr />
+						@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+						<div class="form-group">
+							@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+							<div class="col-md-10">
+								@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+								@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+							</div>
+						</div>
+
+						<div class="form-group">
+							@Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+							<div class="col-md-10">
+								@Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+								@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+							</div>
+						</div>
+
+						<div class="form-group">
+							@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+							<div class="col-md-10">
+								@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+								@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+							</div>
+						</div>
+
+						<div class="form-group">
+							@Html.LabelFor(model => model.CreatDate, htmlAttributes: new { @class = "control-label col-md-2" })
+							<div class="col-md-10">
+								@Html.EditorFor(model => model.CreatDate, new { htmlAttributes = new { @class = "form-control" } })
+								@Html.ValidationMessageFor(model => model.CreatDate, "", new { @class = "text-danger" })
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-offset-2 col-md-10">
+								<input type="submit" value="Create" class="btn btn-default" />
+							</div>
+						</div>
+					</div>
+				}
+
+				<div>
+					@Html.ActionLink("Back to List", "Index")
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="container Content5">
+		<div class="row rowContent5">
+			<div class="col-lg-8">
+				<h3>املاک باغ شهر البرز</h3>
+				<p>در سال های اخیر خرید باغ ویلا در اطراف استان تهران بسیار رواج گردیده و نظر پایتخت نشینان را به خود جلب کرده است. امروزه شهرهای بزرگ از جمله تهران به دلیل آب و هوای نامناسب و آلوده جای مناسبی برای زندگی نمی باشند از این رو بیشتر افراد برای گذراندن وقت خود در تعطیلات و بهره بردن از طبیعت سالم مطابق توان مالی خود اقدام به خرید باغ ویلا در مناطق شهریار، محمدشهر و ملارد می نمایند. زندگی در طبیعت با بهره بردن از امکانات رفاهی و شهری در مناطق اطراف استان تهران از جمله شهریار و محمدشهر امکان پذیر می باشد، این مناطق به دلیل دارا بودن طبیعت زیبا به تفرجگاه مناسبی برای عموم مردم تبدیل شده اند. با مراجعه به لیست باغ ویلاهای املاک سها مشاهده خواهید کرد</p>
+			</div>
+			<div class="col-lg-4"><img src="~/Image/Content (8).jpg" class="img-responsive" alt="Alternate Text" />	</div>
+		</div>
+		<div role="tabpanel" class="tab-pane tab-Content-Row2-video" id="map">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188704.9095260529!2d-83.2392913333692!3d42.35287947682349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824ca0110cb1d75%3A0x5776864e35b9c4d2!2sDetroit%2C%20MI%2C%20USA!5e0!3m2!1sen!2s!4v1584266709556!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" class="map"></iframe>
+		</div>
+		<br />	
+	</div>

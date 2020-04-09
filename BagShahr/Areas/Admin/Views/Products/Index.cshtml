@@ -1,0 +1,77 @@
+﻿@model IEnumerable<DataLayer.Product>
+
+@{
+	ViewBag.Title = "املاک";
+}
+
+<br />
+<br />
+<a href="@Url.Action("Create")" class="btn btn-success">ثبت ملک جدید</a>
+<br />
+<br />
+
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.ImageName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Code)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Title)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Price)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Visite)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Slider)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.IsActive)
+		</th>
+		<th>
+
+		</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				<img class="thumbnail" style="width:100px" src="~/Image/thumb/@item.ImageName" />
+			</td>
+			<td>
+				<h5>@item.Code.ToString()</h5>
+			</td>
+
+			<td>
+				@Html.DisplayFor(modelItem => item.Title)
+			</td>
+			<td>
+				<h5>@item.Price.ToString("#,0")</h5>
+			</td>
+			<td>
+				<h5>@item.Visite</h5>
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Slider)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.IsActive)
+			</td>
+			<td>
+			<td>
+				<a class="btn btn-success btn-sm"  >نمایش </a>
+				<a class="btn btn-info btn-sm" href="@Url.Action("AddGallery",new {id=item.ProductID })">گالری </a>
+				<a class="btn btn-warning btn-sm" href="@Url.Action("Edit",new {id=item.ProductID })">ویرایش </a>
+				<a class="btn btn-danger btn-sm" href="@Url.Action("Delete" ,new {id=item.ProductID })">حذف</a>
+			</td>
+			</td>
+		</tr>
+	}
+
+</table>
