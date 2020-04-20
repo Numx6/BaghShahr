@@ -1,0 +1,99 @@
+﻿@model DataLayer.Article
+
+@{
+	ViewBag.Title = "مقاله";
+}
+
+<br />
+<br />
+<div class="container">
+	<div class="row">
+		@using (Html.BeginForm("Create", "Articles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+		{
+			@*@Html.AntiForgeryToken()*@
+			<div class="col-md-8">
+				<div class="panel panel-primary">
+					<div class="panel-heading"><h4>ثبت مقاله جدید</h4></div>
+					<div class="panel-body">
+						<div class="form-horizontal">
+
+							@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+							<div class="form-group">
+								@Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.ShortDiscript, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.ShortDiscript, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.ShortDiscript, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<div class="col-md-offset-2 col-md-10">
+									<input type="submit" value="ثبت" class="btn btn-success" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading"><h4>تصویر</h4></div>
+					<img src="~/Image/images.jpg" id="imgPreviewProduct" class="thumbnail" style="margin:5px auto" />
+					<div class="panel-body"><input type="file" id="imageProduct" name="ImgUp" /></div>
+				</div>
+			</div>
+		}
+	</div>
+	<div>
+		@Html.ActionLink("برگشت به لیست", "Index")
+	</div>
+
+	@section Scripts {
+		@Scripts.Render("~/bundles/jqueryval")
+		<script>
+			function readURL(input) {
+
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function (e) {
+						$('#imgPreviewProduct').attr('src', e.target.result);
+					}
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+
+			$("#imageProduct").change(function () {
+				readURL(this);
+			});
+		</script>
+		<script src="/ckeditor/ckeditor.js"></script>
+		<script src="/ckeditor/adapters/jquery.js"></script>
+		<script>
+			$(function () {
+				$('#ShortDiscript').ckeditor();
+			});
+			$(function () {
+				$('#Text').ckeditor();
+			});
+		</script>
+	}
+

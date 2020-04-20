@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DataLayer.Article>
+
+@{
+	ViewBag.Title = "مقالات";
+}
+
+<br />
+<br />
+<a href="@Url.Action("Create")" class="btn btn-success">ثبت مقاله </a>
+<br />
+<br />
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.ImageName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Title)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.ShortDiscript)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.CreatDate)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				<img src="~/Image/Article/Thumb/@item.ImageName" alt="Alternate Text" class="thumbnail" />
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Title)
+			</td>
+			<td>
+				@Html.Raw(item.ShortDiscript)
+			</td>
+			<td>
+				<h5>@item.CreatDate.ToString()</h5>
+			</td>
+			<td>
+				<a class="btn btn-success btn-sm">نمایش </a>
+				<a class="btn btn-warning btn-sm" href="@Url.Action("Edit",new {id=item.Id })">ویرایش </a>
+				<a class="btn btn-danger btn-sm" href="@Url.Action("Delete",new {id=item.Id})">حذف</a>
+			</td>
+		</tr>
+		}
+
+	</table>

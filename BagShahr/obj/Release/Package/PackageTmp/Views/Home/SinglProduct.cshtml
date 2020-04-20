@@ -1,0 +1,181 @@
+﻿@model DataLayer.Product
+@{
+	ViewBag.Title = Model.Title;
+}
+<header class="div-single-product">
+	<img src="~/Image/@Model.ImageName" alt="@Model.Title" class="img-single-product img-responsive ">
+</header>
+
+
+@Html.Partial("Nav")
+
+
+<div class="container Cont-Kh-1">
+	<!-- قسمت چپ صفحه در صفحه گوشی -->
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 Cont-Kh-1-cl-Left left-small">
+		<h3 class="Cont-Kh-1-cl-Right-Text-h3 h3small">
+			@Model.Title
+		</h3>
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 Cont-Kh-1-cl-Left-Slider-title-Code">
+			<span class="Code-span">کد ملک : @Model.Code</span>
+			@{
+				if (Model.IsActive)
+				{
+					<span class="Check-span">وضعیت : فعال</span>
+				}
+				else
+				{
+					<span class="UnCheck-span">وضعیت : غیرفعال</span>
+				}
+			}
+		</div>
+
+		<br> <br> <br>
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 Cont-Kh-1-cl-Left-Slider-title-pic">
+			<span class="Cont-Kh-1-cl-Right-Text-Ticet-text"> گالری تصاویر</span>
+		</div>
+
+		<div class="Cont-Kh-1-cl-Left-Slider">
+			@foreach (var item in Model.ProductGalleries)
+			{
+				<div class="thumbnail">
+					<img src="~/Image/thumb/@item.ImageName" class="" alt="@item.ImageTitle" />
+				</div>
+			}
+		</div>
+	</div>
+	<!-- قسمت چپ صفحه در صفحه گوشی -->
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 Cont-Kh-1-cl-Right">
+		<div class="Cont-Kh-1-cl-Right-Text">
+			<h3 class="Cont-Kh-1-cl-Right-Text-h3 h3big">
+				@Model.Title
+			</h3>
+			<p class="Cont-Kh-1-cl-right-text-p">
+				@Html.Raw(Model.Discription)
+			</p>
+			<div class="Cont-Kh-1-cl-Right-Text-Ticet">
+				<span class="Cont-Kh-1-cl-Right-Text-Ticet-text"> قیمت:  @Model.Price.ToString("#,0") </span>
+			</div>
+		</div>
+	</div>
+	<!-- قسمت چپ صفحه در صفحه بزرگتر از گوشی -->
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 Cont-Kh-1-cl-Left left-big">
+		<h3 class="Cont-Kh-1-cl-Right-Text-h3 h3small">
+			@Model.Title
+		</h3>
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 Cont-Kh-1-cl-Left-Slider-title-Code">
+			<span class="Code-span">کد ملک : @Model.Code</span>
+			@{
+				if (Model.IsActive)
+				{
+					<span class="Check-span">وضعیت : فعال</span>
+				}
+				else
+				{
+					<span class="UnCheck-span">وضعیت : غیرفعال</span>
+				}
+			}
+
+		</div>
+
+		<br> <br> <br>
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 Cont-Kh-1-cl-Left-Slider-title-pic">
+			<span class="Cont-Kh-1-cl-Right-Text-Ticet-text">گالری تصاویر</span>
+		</div>
+
+		<div class="Cont-Kh-1-cl-Left-Slider">
+			@foreach (var item in Model.ProductGalleries)
+			{
+				<div class="thumbnail">
+					<img src="~/Image/thumb/@item.ImageName" class="" alt="@item.ImageTitle" />
+				</div>
+			}
+
+		</div>
+	</div>
+	<!-- قسمت چپ صفحه در صفحه بزرگتر از گوشی -->
+</div>
+<div class="Component2-Kh">
+	<div class="container Cont-Component2">
+
+		<div class="row row2-Component2">
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active">
+						<a href="#options" aria-controls="home" role="tab" data-toggle="tab">تجهیزات</a>
+					</li>
+					<li role="presentation">
+						<a href="#map" aria-controls="tab" role="tab" data-toggle="tab">ملک بر روی نقشه</a>
+					</li>
+					<li role="presentation">
+						<a href="#tab" aria-controls="tab" role="tab" data-toggle="tab">مشخصات</a>
+					</li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content tab-Content-Row2">
+					<div role="tabpanel" class="tab-pane active" id="options">
+						@{
+							var e = Model.EquipmentProducts;
+							if (e.Any())
+							{
+								foreach (var item in e)
+								{
+									<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 media">
+										<div class="meida-text">
+											<h3>@item.EquipmentTitle</h3>
+										</div>
+									</div>
+								}
+							}
+							else
+							{
+								<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 media">
+									<div class="meida-text">
+										<h4>موردی ثبت نشده است</h4>
+									</div>
+								</div>
+							}
+						}
+
+					</div>
+					<div role="tabpanel" class="tab-pane tab-Content-Row2-video" id="video">
+
+						<div class="embed-responsive embed-responsive-16by9">
+							<video src="img/Myvideo.mp4" class="embed-responsive-item tab-Content-Row2-video-media" controls></video>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane tab-Content-Row2-video" id="map">
+					</div>
+					<div role="tabpanel" class="tab-pane tab-Content-Row2-video" id="tab">
+
+						@{
+							var s = Model.specifications;
+							if (s.Any())
+							{
+								foreach (var item in s)
+								{
+									<h3 class="h3-tab4">
+										@item.Title
+									</h3>
+								}
+							}
+							else
+							{
+								<h4 class="h3-tab4">
+									موردی ثبت نشده است
+								</h4>
+							}
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1422,9 +1422,6 @@
     <Content Include="Image\slider\1.jpg" />
     <Content Include="Image\slider\2.jpg" />
     <Content Include="Image\slider\3.jpg" />
-    <Content Include="Image\slider\4.jpg" />
-    <Content Include="Image\slider\5.jpg" />
-    <Content Include="Image\slider\6.jpg" />
     <Content Include="Image\slider\images.jpg" />
     <Content Include="Image\thumb\images.jpg" />
     <Content Include="Scripts\bootstrap.js" />

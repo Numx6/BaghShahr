@@ -1,0 +1,24 @@
+﻿@model IEnumerable<DataLayer.Product>
+@{
+	ViewBag.Title = "Search";
+}
+@section Slider{
+	@Html.Action("Slider")
+	@Html.Action("Nav")
+}
+
+<div class="background-list">
+	<div class="container">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 list-header">
+			<h2 class="list-header-text">
+				تعداد @ViewBag.count ملک یافت شد .
+			</h2>
+			<br />
+		</div>
+		@foreach (var item in Model)
+		{
+			@Html.Partial("_Product", item);
+		}
+	</div>
+</div>
+

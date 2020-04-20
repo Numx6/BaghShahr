@@ -1,0 +1,114 @@
+﻿@model DataLayer.ProductGallery
+@{
+	ViewBag.Title = "افزودن گالری";
+}
+
+<div class="row">
+	<div class="col-md-4">
+		<br />
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				گالری
+			</div>
+			@using (Html.BeginForm("AddGallery", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+				@Html.HiddenFor(m => m.ProductID)
+				@*@Html.AntiForgeryToken()*@
+
+				<div class="form-horizontal">
+					<img id="ImgPreviewProduct" style="margin:8px auto" class="thumbnail" src="~/Image/thumb/images.jpg" />
+
+					<div class="form-group">
+						@Html.LabelFor(model => model.ImageName , htmlAttributes: new { @class = "control-label col-md-2" })
+						<div class="col-md-10">
+							<input type="file" id="GallerImg" name="GallerImg" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						@Html.LabelFor(model => model.ImageTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+						<div class="col-md-10">
+							@Html.EditorFor(model => model.ImageTitle, new { htmlAttributes = new { @class = "form-control col-md-8" } })
+							@Html.ValidationMessageFor(model => model.ImageTitle, "", new { @class = "text-danger" })
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-10">
+							<input type="submit" value="ثبت" class="btn btn-success" />
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+	<div class="col-md-8">
+		<br />
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				تصاویر
+			</div>
+			<div>
+				@{
+					List<DataLayer.ProductGallery> list = ViewBag.Gallery;
+				}
+
+
+				<table class="table table-bordered">
+					<tr>
+						<th>تصویر</th>
+						<th>عنوان</th>
+						<th></th>
+					</tr>
+					@foreach (var item in list)
+					{
+						<tr>
+							<td>
+								<img src="/Image/Thumb/@item.ImageName" class="thumbnail" />
+							</td>
+							<td>
+								@item.ImageTitle
+							</td>
+							<td>
+								<a class="btn btn-sm btn-danger" href="/Admin/Products/DeleteGallery/@item.GalleryID">
+									<i class="glyphicon glyphicon-trash"></i>
+								</a>
+							</td>
+						</tr>
+					}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div>
+	@Html.ActionLink("بازگشت به لیست", "Index")
+</div>
+
+@section Scripts{
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<script src="~/ckeditor/ckeditor.js"></script>
+	<script src="~/ckeditor/adapters/jquery.js"></script>
+	<script>
+		function readURL(input) {
+
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#ImgPreviewProduct').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#GallerImg").change(function () {
+			readURL(this);
+		});
+	</script>
+}
+
+
